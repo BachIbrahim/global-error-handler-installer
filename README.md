@@ -39,3 +39,10 @@ The trade-off: the normalized event is lossy. The `raw` field is included for ca
 - `installGlobalErrorHandler(callback, options?)` — installs listeners, returns a `detach()` function.
 - `normalizeErrorEvent(rawEvent, type, environment)` — normalizes a single raw event without installing listeners. `type` is `'error'` or `'unhandledrejection'`; `environment` is `'browser'`, `'node'`, or `'unknown'`.
 - `detectEnvironment()` — returns `'browser'`, `'node'`, or `'unknown'`.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
