@@ -1,6 +1,6 @@
 {
   "name": "global-error-handler-installer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Attaches listeners to window error and unhandledrejection events or Node process uncaughtException and unhandledRejection, routing each to a single callback with normalized event fields.",
   "type": "module",
   "main": "src/index.js",
